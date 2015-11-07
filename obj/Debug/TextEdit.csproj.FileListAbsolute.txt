@@ -1,1 +1,9 @@
 c:\users\me\documents\visual studio 2013\Projects\TextEdit\TextEdit\bin\Debug\TextEdit.exe.config
+c:\users\me\documents\visual studio 2013\Projects\TextEdit\TextEdit\bin\Debug\TextEdit.exe
+c:\users\me\documents\visual studio 2013\Projects\TextEdit\TextEdit\bin\Debug\TextEdit.pdb
+c:\users\me\documents\visual studio 2013\Projects\TextEdit\TextEdit\obj\Debug\TextEdit.csprojResolveAssemblyReference.cache
+c:\users\me\documents\visual studio 2013\Projects\TextEdit\TextEdit\obj\Debug\TextEdit.Properties.Resources.resources
+c:\users\me\documents\visual studio 2013\Projects\TextEdit\TextEdit\obj\Debug\TextEdit.csproj.GenerateResource.Cache
+c:\users\me\documents\visual studio 2013\Projects\TextEdit\TextEdit\obj\Debug\TextEdit.exe
+c:\users\me\documents\visual studio 2013\Projects\TextEdit\TextEdit\obj\Debug\TextEdit.pdb
+c:\users\me\documents\visual studio 2013\Projects\TextEdit\TextEdit\obj\Debug\TextEdit.FormMain.resources
