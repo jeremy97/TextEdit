@@ -70,5 +70,16 @@ namespace TextEdit.Properties {
                 this["FormLocationY"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Font CurrentFont {
+            get {
+                return ((global::System.Drawing.Font)(this["CurrentFont"]));
+            }
+            set {
+                this["CurrentFont"] = value;
+            }
+        }
     }
 }

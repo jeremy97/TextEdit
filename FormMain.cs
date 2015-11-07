@@ -13,6 +13,12 @@ namespace TextEdit
 {
     public partial class FormMain : Form
     {
+        private int syntax = -1;
+        /*
+         * -1 = unknown (no highlighting), 0 = .txt (no highlighting),
+         * 1 = .rtf (no highlighting), 2 = .html (highlighting),
+         * 
+         */
         public FormMain()
         {
             InitializeComponent();
@@ -20,47 +26,52 @@ namespace TextEdit
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            this.Height = Properties.Settings.Default.FormHeight;
-            this.Width = Properties.Settings.Default.FormWidth;
-            this.Left = Properties.Settings.Default.FormLocationX;
-            this.Top = Properties.Settings.Default.FormLocationY;
+            loadSettings();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Text Files (.txt)|*.txt";
+            sfd.Filter = "Text Files (.txt)|*.txt|Rich Text Files (.rtf)|*.rtf";
             sfd.ShowDialog();
 
             if (sfd.FileName != "")
             {
-                textboxMain.SaveFile(sfd.FileName, RichTextBoxStreamType.PlainText);
+                if (sfd.FileName.EndsWith(".txt"))
+                {
+                    textboxMain.SaveFile(sfd.FileName, RichTextBoxStreamType.PlainText);
+                }
+                else if (sfd.FileName.EndsWith(".rtf"))
+                {
+                    textboxMain.SaveFile(sfd.FileName, RichTextBoxStreamType.RichText);
+                }
             }
         }
 
         private void buttonOpen_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Text Files (.txt)|*.txt";
+            ofd.Filter = "Text Files (.txt)|*.txt|Rich Text Files (.rtf)|*.rtf";
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                Stream fileStream = ofd.OpenFile();
-                StreamReader reader = new StreamReader(fileStream);
-
-                while (!reader.EndOfStream)
+                if (ofd.FileName.EndsWith(".txt"))
                 {
-                    textboxMain.Text += reader.ReadLine();
-
-                    if (!reader.EndOfStream)
-                    {
-                        textboxMain.Text += "\n";
-                    }
+                    textboxMain.LoadFile(ofd.FileName, RichTextBoxStreamType.PlainText);
+                }
+                else if (ofd.FileName.EndsWith(".rtf"))
+                {
+                    textboxMain.LoadFile(ofd.FileName, RichTextBoxStreamType.RichText);
                 }
             }
         }
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            saveSettings();
+        }
+
+        private void saveSettings()
         {
             Properties.Settings.Default.FormHeight = this.Height;
             Properties.Settings.Default.FormWidth = this.Width;
@@ -69,9 +80,25 @@ namespace TextEdit
             Properties.Settings.Default.Save();
         }
 
-        private void FormMain_ResizeEnd(object sender, EventArgs e)
+        private void loadSettings()
         {
+            this.Height = Properties.Settings.Default.FormHeight;
+            this.Width = Properties.Settings.Default.FormWidth;
+            this.Left = Properties.Settings.Default.FormLocationX;
+            this.Top = Properties.Settings.Default.FormLocationY;
+            this.textboxMain.Font = Properties.Settings.Default.CurrentFont;
+        }
 
+        private void buttonFormatting_Click(object sender, EventArgs e)
+        {
+            FontDialog fd = new FontDialog();
+            fd.Font = Properties.Settings.Default.CurrentFont;
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                textboxMain.Font = fd.Font;
+                Properties.Settings.Default.CurrentFont = fd.Font;
+                Properties.Settings.Default.Save();
+            }
         }
     }
 }

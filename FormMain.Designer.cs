@@ -39,6 +39,7 @@
             // 
             // textboxMain
             // 
+            this.textboxMain.AcceptsTab = true;
             this.textboxMain.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textboxMain.BulletIndent = 2;
             this.textboxMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -72,14 +73,14 @@
             // buttonSave
             // 
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(152, 22);
+            this.buttonSave.Size = new System.Drawing.Size(103, 22);
             this.buttonSave.Text = "Save";
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonOpen
             // 
             this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(152, 22);
+            this.buttonOpen.Size = new System.Drawing.Size(103, 22);
             this.buttonOpen.Text = "Open";
             this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
             // 
@@ -88,6 +89,7 @@
             this.buttonFormatting.Name = "buttonFormatting";
             this.buttonFormatting.Size = new System.Drawing.Size(78, 20);
             this.buttonFormatting.Text = "Formatting";
+            this.buttonFormatting.Click += new System.EventHandler(this.buttonFormatting_Click);
             // 
             // FormMain
             // 
@@ -103,7 +105,6 @@
             this.Text = "TextEdit";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
-            this.ResizeEnd += new System.EventHandler(this.FormMain_ResizeEnd);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
