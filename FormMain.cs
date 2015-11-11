@@ -89,7 +89,14 @@ namespace TextEdit
             this.textboxMain.Font = Properties.Settings.Default.CurrentFont;
         }
 
-        private void buttonFormatting_Click(object sender, EventArgs e)
+        private void buttonWordWrap_Click(object sender, EventArgs e)
+        {
+            buttonWordWrap.Checked = !buttonWordWrap.Checked;
+            Properties.Settings.Default.WordWrap = buttonWordWrap.Checked;
+            textboxMain.WordWrap = buttonWordWrap.Checked;
+        }
+
+        private void buttonFontSize_Click(object sender, EventArgs e)
         {
             FontDialog fd = new FontDialog();
             fd.Font = Properties.Settings.Default.CurrentFont;

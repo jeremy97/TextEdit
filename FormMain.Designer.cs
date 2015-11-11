@@ -34,6 +34,8 @@
             this.buttonSave = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonFormatting = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonWordWrap = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonFontSize = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +54,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.White;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.buttonFormatting});
@@ -73,23 +76,41 @@
             // buttonSave
             // 
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(103, 22);
+            this.buttonSave.Size = new System.Drawing.Size(152, 22);
             this.buttonSave.Text = "Save";
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonOpen
             // 
             this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(103, 22);
+            this.buttonOpen.Size = new System.Drawing.Size(152, 22);
             this.buttonOpen.Text = "Open";
             this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
             // 
             // buttonFormatting
             // 
+            this.buttonFormatting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buttonWordWrap,
+            this.buttonFontSize});
             this.buttonFormatting.Name = "buttonFormatting";
             this.buttonFormatting.Size = new System.Drawing.Size(78, 20);
             this.buttonFormatting.Text = "Formatting";
-            this.buttonFormatting.Click += new System.EventHandler(this.buttonFormatting_Click);
+            // 
+            // buttonWordWrap
+            // 
+            this.buttonWordWrap.Checked = true;
+            this.buttonWordWrap.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.buttonWordWrap.Name = "buttonWordWrap";
+            this.buttonWordWrap.Size = new System.Drawing.Size(152, 22);
+            this.buttonWordWrap.Text = "Word Wrap";
+            this.buttonWordWrap.Click += new System.EventHandler(this.buttonWordWrap_Click);
+            // 
+            // buttonFontSize
+            // 
+            this.buttonFontSize.Name = "buttonFontSize";
+            this.buttonFontSize.Size = new System.Drawing.Size(152, 22);
+            this.buttonFontSize.Text = "Font/Size";
+            this.buttonFontSize.Click += new System.EventHandler(this.buttonFontSize_Click);
             // 
             // FormMain
             // 
@@ -120,6 +141,8 @@
         private System.Windows.Forms.ToolStripMenuItem buttonSave;
         private System.Windows.Forms.ToolStripMenuItem buttonOpen;
         private System.Windows.Forms.ToolStripMenuItem buttonFormatting;
+        private System.Windows.Forms.ToolStripMenuItem buttonWordWrap;
+        private System.Windows.Forms.ToolStripMenuItem buttonFontSize;
     }
 }
 

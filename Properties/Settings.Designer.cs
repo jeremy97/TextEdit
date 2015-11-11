@@ -81,5 +81,17 @@ namespace TextEdit.Properties {
                 this["CurrentFont"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool WordWrap {
+            get {
+                return ((bool)(this["WordWrap"]));
+            }
+            set {
+                this["WordWrap"] = value;
+            }
+        }
     }
 }
